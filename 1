@@ -1,0 +1,49 @@
+CREATE TABLE department
+	(id serial primary key,
+	name_department varchar(1000)not null,
+	deanery varchar(1000)not null);
+	CREATE TABLE student_group
+	(id serial primary key,
+	group_name varchar(1000)not null,
+	name_department integer not null references department(id));
+	CREATE TABLE student
+	(id serial primary key,
+	full_name varchar(1000)not null,
+	passport varchar(1000)not null,
+
+
+	select  s.full_name, s.passport, sg.group_name, d.name_department, d. deanery
+	from department d, student_group sg, student s
+	where sg.id = s.group_name and sg.name_department = d.id;
+
+
+	INSERT INTO department(name_department, deanery)
+	values ('ИТ', '--'),
+	('СиСС', '---');
+	INSERT INTO student_group(group_name,name_department)
+	values ('БВТ2201', 2),
+	('БСТ2202', 1),
+	('БВТ2202', 2),
+	('БСТ2206', 1);
+	INSERT INTO student(full_name, passport, group_name)
+	values ('Full name', 5111563322, 1),
+	('Full name', 1111111111, 1),
+	('Full name', 2222222222, 1),
+	('Full name', 3333333333, 1),
+	('Full name', 4444444444, 1),
+	('Full name', 5555555555, 2),
+	('Full name', 6666666666, 2),
+	('Full name', 7777777777, 2),
+	('Full name', 8888888888, 2),
+	('Full name', 9999999999, 2),
+	('Full name', 1010101010, 3),
+	('Full name', 1212121212, 3),
+	('Full name', 1313131313, 3),
+	('Full name', 1414141414, 3),
+	('Full name', 1515151515, 3),
+	('Full name', 1616161616, 4),
+	('Full name', 1717171717, 4),
+	('Full name', 1818181818, 4),
+	('Full name', 1919191919, 4),
+	('Full name', 2020202020, 4);
+
